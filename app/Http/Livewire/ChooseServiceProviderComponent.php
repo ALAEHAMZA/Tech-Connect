@@ -31,7 +31,7 @@ class ChooseServiceProviderComponent extends Component
     public function render()
     {
         $service = Service::where('id',$this->service_id)->first();
-        $sproviders = ServiceProvider::where('service_category_id',$service->id)->get();
+        $sproviders = ServiceProvider::where('service_category_id',$service->service_category_id)->get();
         return view('livewire.choose-service-provider-component',['sproviders'=>$sproviders])->layout('layouts.base');
     }
 }
